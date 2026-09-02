@@ -17,6 +17,13 @@ book:
     - 07-var_cuali.qmd
     - 08-ph1.qmd
     - 09-ph2.qmd
+    - 10-diag1.qmd
+    - 11-diag2.qmd
+    - 12-ph-homoce.qmd
+    - 13-ph-indep.qmd
+    - 14-mod_poli.qmd
+    - 15-all_possible_reg.qmd
+    - 16-selecvar.qmd
     - references.qmd
 
 bibliography: mis_ref.bib
