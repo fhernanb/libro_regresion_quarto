@@ -98,7 +98,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-0d3ac16015dd0859924b68075192f47b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -285,6 +285,30 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./15-all_possible_reg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Todas las regresiones posibles</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-selecvar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Selección de variables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-feature_selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Feature selection</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-multicoli.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Multicolinealidad</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -373,7 +397,7 @@ Attaching package: 'zoo'</code></pre>
     Durbin-Watson test
 
 data:  mod1
-DW = 2.0496, p-value = 0.6374
+DW = 2.226, p-value = 0.893
 alternative hypothesis: true autocorrelation is greater than 0</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">residuals</span>(mod1), <span class="at">pch=</span><span class="dv">19</span>, <span class="at">col=</span><span class="st">"deepskyblue1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -398,7 +422,7 @@ alternative hypothesis: true autocorrelation is greater than 0</code></pre>
     Durbin-Watson test
 
 data:  mod2
-DW = 0.24762, p-value &lt; 2.2e-16
+DW = 0.31101, p-value &lt; 2.2e-16
 alternative hypothesis: true autocorrelation is greater than 0</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">residuals</span>(mod2), <span class="at">pch=</span><span class="dv">19</span>, <span class="at">col=</span><span class="st">"tomato"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -427,7 +451,7 @@ alternative hypothesis: true autocorrelation is greater than 0</code></pre>
     Breusch-Godfrey test for serial correlation of order up to 1
 
 data:  mod1
-LM test = 0.14533, df = 1, p-value = 0.703</code></pre>
+LM test = 1.3322, df = 1, p-value = 0.2484</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y2 <span class="sc">~</span> x)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bgtest</span>(mod2) <span class="do">## perform Durbin-Watson test</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -436,7 +460,7 @@ LM test = 0.14533, df = 1, p-value = 0.703</code></pre>
     Breusch-Godfrey test for serial correlation of order up to 1
 
 data:  mod2
-LM test = 76.214, df = 1, p-value &lt; 2.2e-16</code></pre>
+LM test = 70.219, df = 1, p-value &lt; 2.2e-16</code></pre>
 </div>
 </div>
 

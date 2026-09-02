@@ -24,6 +24,15 @@ book:
     - 14-mod_poli.qmd
     - 15-all_possible_reg.qmd
     - 16-selecvar.qmd
+    - 17-feature_selection.qmd
+    - 18-multicoli.qmd
+    - 19-coefEstandarizados.qmd
+    - 20-algebramatricial.qmd
+    - 21-Wilkinson-Rogers.qmd
+    - 22-xy.qmd
+    - 23-behind.qmd
+    - 24-pasos.qmd
+    - 25-misspecification.qmd
     - references.qmd
 
 bibliography: mis_ref.bib
@@ -31,7 +40,7 @@ bibliography: mis_ref.bib
 format:
   html:
     theme:
-      - cosmo
+      - simplex
       - brand
   pdf:
     documentclass: scrreprt

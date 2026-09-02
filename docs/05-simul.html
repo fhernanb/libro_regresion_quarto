@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-0d3ac16015dd0859924b68075192f47b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -266,6 +266,30 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./15-all_possible_reg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Todas las regresiones posibles</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-selecvar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Selección de variables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-feature_selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Feature selection</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-multicoli.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Multicolinealidad</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -365,11 +389,11 @@ x_i &amp;\sim U(-5, 6) \\
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>datos</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           y          x
-1  14.935993 -2.4295742
-2  -8.497441  2.8058323
-3   1.766063  0.6493834
-4  24.013859 -3.6298214
-5 -27.235557  5.0031632</code></pre>
+1 -10.230162  3.0481183
+2   2.120935 -0.5629855
+3 -18.459097  4.2278975
+4 -10.567492  1.4799816
+5  -4.399037  1.3605413</code></pre>
 </div>
 </div>
 <p>Vamos ahora a simular 200 observaciones, a dibujar un diagrama de dispersión y a estimar el vector de parámetros <span class="math inline">\(\boldsymbol{\Theta}=(\beta_0=4, \beta_1=-6, \sigma=4)^\top\)</span>.</p>
@@ -395,7 +419,7 @@ x_i &amp;\sim U(-5, 6) \\
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>theta_hat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept)           x       sigma 
-    4.09441    -6.01045     3.90541 </code></pre>
+   4.174773   -6.085993    3.765988 </code></pre>
 </div>
 </div>
 <p>De la salida anterior vemos que el vector estimado <span class="math inline">\(\hat{\boldsymbol{\Theta}}\)</span> está muy cerca del vector de parámetros <span class="math inline">\(\boldsymbol{\Theta}\)</span></p>

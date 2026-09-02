@@ -98,7 +98,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-0d3ac16015dd0859924b68075192f47b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -293,6 +293,36 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./16-selecvar.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Selección de variables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-feature_selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Feature selection</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-multicoli.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Multicolinealidad</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-coefEstandarizados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Regresión con coeficientes de regresión estandarizados</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-algebramatricial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Algebra matricial con R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-Wilkinson-Rogers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Notación de Wilkinson y Rogers</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -565,7 +595,7 @@ H_1 &amp;= \text{los residuales NO tienen distribución normal.}
     Shapiro-Wilk normality test
 
 data:  ei
-W = 0.99637, p-value = 0.3156</code></pre>
+W = 0.99548, p-value = 0.1567</code></pre>
 </div>
 </div>
 <p>De la salida anterior vemos que el valor-p es mayor que un nivel de significancia del 7 por ciento, eso significa que no hay evidencias para rechazar <span class="math inline">\(H_0\)</span>.</p>
@@ -627,7 +657,7 @@ H_1 &amp;= \text{los residuales NO tienen distribución normal.}
     Shapiro-Wilk normality test
 
 data:  ei
-W = 0.91848, p-value = 8.607e-16</code></pre>
+W = 0.91645, p-value = 5.327e-16</code></pre>
 </div>
 </div>
 <p>De la salida anterior vemos que el valor-p es menor que un nivel de significancia del 7 por ciento, eso significa que no hay evidencias para rechazar <span class="math inline">\(H_0\)</span>.</p>
@@ -683,7 +713,7 @@ H_1 &amp;= \text{los residuales NO tienen distribución normal.}
     Shapiro-Wilk normality test
 
 data:  ei
-W = 0.90194, p-value &lt; 2.2e-16</code></pre>
+W = 0.85156, p-value &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>De la salida anterior vemos que el valor-p es menor que un nivel de significancia del 7 por ciento, eso significa que no hay evidencias para rechazar <span class="math inline">\(H_0\)</span>.</p>

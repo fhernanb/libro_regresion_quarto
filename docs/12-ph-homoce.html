@@ -98,7 +98,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-0d3ac16015dd0859924b68075192f47b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -285,6 +285,30 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./15-all_possible_reg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Todas las regresiones posibles</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-selecvar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Selección de variables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-feature_selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Feature selection</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-multicoli.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Multicolinealidad</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -384,7 +408,7 @@ H_1 &amp;: \text{los errores no tienen varianza constante.}
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(estadistico, valorP)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     estadistico       valorP
-[1,]     34.5703 3.112819e-08</code></pre>
+[1,]    25.75634 2.553182e-06</code></pre>
 </div>
 </div>
 <p>Vamos a aplicar la prueba de forma automática con la función <code>bptest</code>.</p>
@@ -396,7 +420,7 @@ H_1 &amp;: \text{los errores no tienen varianza constante.}
     studentized Breusch-Pagan test
 
 data:  mod
-BP = 34.57, df = 2, p-value = 3.113e-08</code></pre>
+BP = 25.756, df = 2, p-value = 2.553e-06</code></pre>
 </div>
 </div>
 <p>De la salida anterior se observa que el valor-P es menor que el nivel de significancia usual de 5%, por lo tanto, hay evidencias para decir que no se cumple la homocedasticidad de los <span class="math inline">\(e_i\)</span>.</p>
@@ -421,7 +445,7 @@ BP = 34.57, df = 2, p-value = 3.113e-08</code></pre>
     studentized Breusch-Pagan test
 
 data:  mod
-BP = 48.164, df = 5, p-value = 3.289e-09</code></pre>
+BP = 25.926, df = 5, p-value = 9.224e-05</code></pre>
 </div>
 </div>
 <p>Como el valor-P es pequeño entonces hay evidencias para rechazar la hipótesis de homocedasticidad.</p>
@@ -434,7 +458,7 @@ BP = 48.164, df = 5, p-value = 3.289e-09</code></pre>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(estadistico, valorP)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     estadistico       valorP
-[1,]    48.16384 3.288628e-09</code></pre>
+[1,]    25.92588 9.223855e-05</code></pre>
 </div>
 </div>
 </section>
@@ -456,7 +480,7 @@ BP = 48.164, df = 5, p-value = 3.289e-09</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Non-constant Variance Score Test 
 Variance formula: ~ fitted.values 
-Chisquare = 36.86505, Df = 1, p = 1.2659e-09</code></pre>
+Chisquare = 21.40867, Df = 1, p = 3.7109e-06</code></pre>
 </div>
 </div>
 </section>

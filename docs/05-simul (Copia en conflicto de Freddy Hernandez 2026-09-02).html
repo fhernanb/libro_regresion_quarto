@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-0d3ac16015dd0859924b68075192f47b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -278,6 +278,36 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./17-feature_selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Feature selection</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-multicoli.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Multicolinealidad</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-coefEstandarizados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Regresión con coeficientes de regresión estandarizados</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-algebramatricial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Algebra matricial con R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-Wilkinson-Rogers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Notación de Wilkinson y Rogers</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -376,12 +406,12 @@ x_i &amp;\sim U(-5, 6) \\
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">gen_dat</span>(<span class="at">n=</span><span class="dv">5</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>datos</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>          y         x
-1 -32.47828  5.461382
-2  12.08875 -1.313247
-3 -36.79477  5.608328
-4 -33.54639  5.945135
-5 -27.50669  4.408352</code></pre>
+<pre><code>           y          x
+1 -27.577677  5.5502189
+2   9.707459 -0.2582662
+3  14.214156 -1.0449664
+4 -21.007488  4.9372079
+5 -25.563253  5.5135241</code></pre>
 </div>
 </div>
 <p>Vamos ahora a simular 200 observaciones, a dibujar un diagrama de dispersión y a estimar el vector de parámetros <span class="math inline">\(\boldsymbol{\Theta}=(\beta_0=4, \beta_1=-6, \sigma=4)^\top\)</span>.</p>
@@ -407,7 +437,7 @@ x_i &amp;\sim U(-5, 6) \\
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>theta_hat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept)           x       sigma 
-   4.059291   -5.981023    3.883407 </code></pre>
+    4.08777    -5.99175     3.94243 </code></pre>
 </div>
 </div>
 <p>De la salida anterior vemos que el vector estimado <span class="math inline">\(\hat{\boldsymbol{\Theta}}\)</span> está muy cerca del vector de parámetros <span class="math inline">\(\boldsymbol{\Theta}\)</span></p>

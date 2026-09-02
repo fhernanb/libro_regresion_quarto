@@ -52,7 +52,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./14-mod_poli.html" rel="prev">
+<link href="./18-multicoli.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -62,7 +62,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-0d3ac16015dd0859924b68075192f47b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -220,6 +220,30 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./15-all_possible_reg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Todas las regresiones posibles</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-selecvar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Selección de variables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-feature_selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Feature selection</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-multicoli.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Multicolinealidad</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">References</span></a>
   </div>
@@ -269,6 +293,10 @@ Cook, R. Dennis, and Sanford Weisberg. 1997. <span>“Graphics for
 Assessing the Adequacy of Regression Models.”</span> <em>Journal of the
 American Statistical Association</em> 92 (438): 490–99. <a href="https://doi.org/10.1080/01621459.1997.10474002">https://doi.org/10.1080/01621459.1997.10474002</a>.
 </div>
+<div id="ref-R-leaps" class="csl-entry" role="listitem">
+Fortran code by Alan Miller, Thomas Lumley based on. 2020. <em>Leaps:
+Regression Subset Selection</em>. <a href="https://CRAN.R-project.org/package=leaps">https://CRAN.R-project.org/package=leaps</a>.
+</div>
 <div id="ref-fox2015applied" class="csl-entry" role="listitem">
 Fox, John. 2015. <em>Applied Regression Analysis and Generalized Linear
 Models</em>. Sage Publications.
@@ -284,6 +312,10 @@ Regression</em>. Third. SAGE Publications, Inc.
 <div id="ref-bretz2010" class="csl-entry" role="listitem">
 Frank Bretz, Peter Westfall, Torsten Hothorn. 2010. <em>Multiple
 Comparisons Using r</em>. Chapman; Hall/CRC.
+</div>
+<div id="ref-R-olsrr" class="csl-entry" role="listitem">
+Hebbali, Aravind. 2026. <em>Olsrr: Tools for Building OLS Regression
+Models</em>. <a href="https://olsrr.rsquaredacademy.com/">https://olsrr.rsquaredacademy.com/</a>.
 </div>
 <div id="ref-R-model" class="csl-entry" role="listitem">
 Hernandez, Freddy, and Olga Usuga. 2026. <em>Model: This Package
@@ -309,6 +341,10 @@ Montgomery, Douglas C., Elizabeth A. Peck, and Geoffrey G. Vining. 2012.
 <div id="ref-mpv06" class="csl-entry" role="listitem">
 Montgomery, E. &amp; Vining, D. &amp; Peck. 2006. <em>Introducción Al
 Análisis de Regresión Lineal</em>. 3ed ed. Cecsa.
+</div>
+<div id="ref-R-MASS" class="csl-entry" role="listitem">
+Ripley, Brian, and Bill Venables. 2025. <em>MASS: Support Functions and
+Datasets for Venables and Ripley’s MASS</em>. <a href="http://www.stats.ox.ac.uk/pub/MASS4/">http://www.stats.ox.ac.uk/pub/MASS4/</a>.
 </div>
 <div id="ref-white1980hetero" class="csl-entry" role="listitem">
 White, Halbert. 1980. <span>“A Heteroskedasticity-Consistent Covariance
@@ -726,8 +762,8 @@ Regression Relationships.”</span> <em>R News</em> 2 (3): 7–10. <a href="http
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./14-mod_poli.html" class="pagination-link" aria-label="Modelos polinomiales">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Modelos polinomiales</span></span>
+      <a href="./18-multicoli.html" class="pagination-link" aria-label="Multicolinealidad">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Multicolinealidad</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
