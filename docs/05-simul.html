@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>References – Análisis de regresión con R</title>
+<title>5&nbsp; Simulación – Análisis de regresión con R</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,26 +23,42 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -52,7 +68,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./09-ph2.html" rel="prev">
+<link href="./06-ic.html" rel="next">
+<link href="./04-predict.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -91,6 +108,35 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -103,7 +149,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-simul.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Simulación</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -160,7 +206,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-simul.html" class="sidebar-item-text sidebar-link">
+  <a href="./05-simul.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Simulación</span></span></a>
   </div>
 </li>
@@ -190,7 +236,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -199,15 +245,31 @@ div.csl-indent {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#preguntas-sobre-simulación-en-stackoverflow" id="toc-preguntas-sobre-simulación-en-stackoverflow" class="nav-link active" data-scroll-target="#preguntas-sobre-simulación-en-stackoverflow">Preguntas sobre simulación en StackOverFlow</a></li>
+  <li><a href="#simulando-datos-de-un-modelo-lineal" id="toc-simulando-datos-de-un-modelo-lineal" class="nav-link" data-scroll-target="#simulando-datos-de-un-modelo-lineal">Simulando datos de un modelo lineal</a>
+  <ul class="collapse">
+  <li><a href="#ejemplo" id="toc-ejemplo" class="nav-link" data-scroll-target="#ejemplo">Ejemplo</a></li>
+  </ul></li>
+  <li><a href="#función-simulate" id="toc-función-simulate" class="nav-link" data-scroll-target="#función-simulate">Función <code>simulate</code></a>
+  <ul class="collapse">
+  <li><a href="#ejemplo-1" id="toc-ejemplo-1" class="nav-link" data-scroll-target="#ejemplo-1">Ejemplo</a></li>
+  </ul></li>
+  <li><a href="#otras-herramientas-para-simular" id="toc-otras-herramientas-para-simular" class="nav-link" data-scroll-target="#otras-herramientas-para-simular">Otras herramientas para simular</a></li>
+  <li><a href="#videos-sugeridos" id="toc-videos-sugeridos" class="nav-link" data-scroll-target="#videos-sugeridos">Videos sugeridos</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">References</h1>
+<h1 class="title"><span id="simul" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Simulación</span></span></h1>
 </div>
 
 
@@ -224,39 +286,149 @@ div.csl-indent {
 </header>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-R-MPV" class="csl-entry" role="listitem">
-Braun, W. J., and S. MacQueen. 2023. <em>MPV: Data Sets from Montgomery,
-Peck and Vining</em>. <a href="https://CRAN.R-project.org/package=MPV">https://CRAN.R-project.org/package=MPV</a>.
+<p>En este capítulo se muestra como simular datos que sigan un modelo o estructura dada. Aprender a simular datos es de mucha utilidad para comprender la naturaleza de los datos y para poner a prueba algunos procedimientos de modelos de regresión.</p>
+<p align="center">
+</p><p><img src="images/lego.jpg" width="300"></p>
+<p></p>
+<section id="preguntas-sobre-simulación-en-stackoverflow" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="preguntas-sobre-simulación-en-stackoverflow">Preguntas sobre simulación en StackOverFlow</h2>
+<p>Una de las preguntas más frecuente que hacen los usuarios en StackOverFlow es: “How to simulate linear models in R?”. Muchas respuestas se han dado para ayudar a esos usuarios que necesitan simular datos con una estructura dada.</p>
+<p>A continuación se muestran algunas de esas preguntas/respuestas hechas en StackOverFlow, invito a lector para que visite los enlaces y explore las respuestas dadas.</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/23301703/how-to-generate-observations-from-a-linear-model-in-r">How to generate observations from a linear model in R</a>.</li>
+<li><a href="https://stackoverflow.com/questions/15889174/how-to-generate-random-y-at-specific-x-from-a-linear-model-in-r">How to generate random Y at specific X from a linear model in R?</a>.</li>
+<li><a href="https://stackoverflow.com/questions/47294225/simulate-data-in-r-from-a-linear-model-where-the-parameters-are-correlated">Simulate data in R from a linear model where the parameters are correlated</a>.</li>
+<li><a href="https://stackoverflow.com/questions/27114449/create-simulated-data-multiple-regression-in-r">Create Simulated Data Multiple Regression in R</a>.</li>
+<li><a href="https://stackoverflow.com/questions/57360673/simulate-data-from-regression-model-with-exact-parameters-in-r">Simulate data from regression model with exact parameters in R</a>.</li>
+</ul>
+<p>Las respuestas a cómo simular datos de un modelo lineal son muy variadas, algunas sencillas, otras un poco más complejas, y por esa razón en la siguiente sección se mostrará como simular datos de una forma didáctica.</p>
+</section>
+<section id="simulando-datos-de-un-modelo-lineal" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="simulando-datos-de-un-modelo-lineal">Simulando datos de un modelo lineal</h2>
+<p>Para simular de forma exitosa datos de un modelo lineal, se recomienda tener el modelo escrito en <strong>forma simbólica</strong> ya que eso facilita identificar la variable respuesta, su distribución y los parámetros que van a depender de las variables independientes.</p>
+<p>A continuación se muestra un ejemplo de como simular observaciones de un modelo lineal.</p>
+<section id="ejemplo" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="ejemplo">Ejemplo</h3>
+<p>Crear una función que simule <code>n</code> observaciones del siguiente modelo que tiene el vector de parámetros <span class="math inline">\(\boldsymbol{\Theta}=(\beta_0=4, \beta_1=-6, \sigma=4)^\top\)</span>.</p>
+<p><span class="math display">\[\begin{align*}
+y_i &amp;\sim  N(\mu_i, \sigma^2) \\
+\mu_i &amp;= 4 - 6 x_i \\
+x_i &amp;\sim U(-5, 6) \\
+\sigma^2 &amp;= 16
+\end{align*}\]</span></p>
+<p><strong>Solución</strong></p>
+<p>Todo modelo en lenguaje simbólico se lee de arriba hacia abajo <span class="math inline">\(\Downarrow\)</span> pero al escribirlo en R se hace de abajo hacia arriba <span class="math inline">\(\Uparrow\)</span>.</p>
+<p>A continuación se muestra la función solicitada la cual sólo tiene un argumento y que entrega como resultado un marco de datos con la información. Estimado lector, mire con detalle el modelo simbólico e identifique todos esos elementos en el código de abajo.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>gen_dat <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  varianza <span class="ot">&lt;-</span> <span class="dv">16</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="at">n=</span>n, <span class="at">min=</span><span class="sc">-</span><span class="dv">5</span>, <span class="at">max=</span><span class="dv">6</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  media <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="sc">-</span> <span class="dv">6</span> <span class="sc">*</span> x</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span>n, <span class="at">mean=</span>media, <span class="at">sd=</span><span class="fu">sqrt</span>(varianza))</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  marco_datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">y=</span>y, <span class="at">x=</span>x)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(marco_datos)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="ref-bretz2010" class="csl-entry" role="listitem">
-Frank Bretz, Peter Westfall, Torsten Hothorn. 2010. <em>Multiple
-Comparisons Using r</em>. Chapman; Hall/CRC.
-</div>
-<div id="ref-R-model" class="csl-entry" role="listitem">
-Hernandez, Freddy, and Olga Usuga. 2026. <em>Model: This Package
-Contains Useful Functions for Modeling Regresion</em>. <a href="https://fhernanb.github.io/model">https://fhernanb.github.io/model</a>.
-</div>
-<div id="ref-R-multcomp" class="csl-entry" role="listitem">
-Hothorn, Torsten, Frank Bretz, and Peter Westfall. 2026. <em>Multcomp:
-Simultaneous Inference in General Parametric Models</em>. <a href="https://codeberg.org/thothorn/multcomp">https://codeberg.org/thothorn/multcomp</a>.
-</div>
-<div id="ref-neter2005" class="csl-entry" role="listitem">
-Kutner, M., C. Nachtsheim, J. Neter, and W. Li. 2005. <em>Applied Linear
-Statistical Models</em>. Fifth. McGraw Hill/Irwin.
-</div>
-<div id="ref-Montgomery12" class="csl-entry" role="listitem">
-Montgomery, Douglas C., Elizabeth A. Peck, and Geoffrey G. Vining. 2012.
-<em>Introduction to Linear Regression Analysis (5th Ed.)</em>. Wiley
-&amp; Sons.
-</div>
-<div id="ref-mpv06" class="csl-entry" role="listitem">
-Montgomery, E. &amp; Vining, D. &amp; Peck. 2006. <em>Introducción Al
-Análisis de Regresión Lineal</em>. 3ed ed. Cecsa.
+<p>Vamos a poner a prueba la función para simular 5 observaciones de la siguiente manera.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">gen_dat</span>(<span class="at">n=</span><span class="dv">5</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>datos</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          y         x
+1 -26.66456  5.372334
+2  24.24543 -3.448342
+3 -18.12152  3.838908
+4 -15.10417  3.672360
+5 -11.69755  3.653079</code></pre>
 </div>
 </div>
+<p>Vamos ahora a simular 200 observaciones, a dibujar un diagrama de dispersión y a estimar el vector de parámetros <span class="math inline">\(\boldsymbol{\Theta}=(\beta_0=4, \beta_1=-6, \sigma=4)^\top\)</span>.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">gen_dat</span>(<span class="at">n=</span><span class="dv">200</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos, <span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y=</span>y)) <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_light</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="05-simul_files/figure-html/simul01-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>De la figura anterior se observa que la nube tiene pendiente negativa y eso se debe a <span class="math inline">\(\beta_1=-6\)</span>; la nube tiene la misma dispersión y eso de debe a que <span class="math inline">\(\sigma\)</span> es constante e igual a 4.</p>
+<p>Para estimar <span class="math inline">\(\boldsymbol{\Theta}=(\beta_0=4, \beta_1=-6, \sigma=4)^\top\)</span> podemos usar el siguiente código.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data=</span>datos)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>theta_hat <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">coef</span>(mod), <span class="at">sigma=</span><span class="fu">summary</span>(mod)<span class="sc">$</span>sigma)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>theta_hat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)           x       sigma 
+   4.099320   -6.048976    4.100778 </code></pre>
+</div>
+</div>
+<p>De la salida anterior vemos que el vector estimado <span class="math inline">\(\hat{\boldsymbol{\Theta}}\)</span> está muy cerca del vector de parámetros <span class="math inline">\(\boldsymbol{\Theta}\)</span></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El código usado en este ejemplo para simular datos de un modelo lineal es un código sencillo y didáctico. Este código busca que el lector aprenda a escribir de una forma sencilla las relaciones entre la variable respuesta, las variables independientes y la influencia de los parámetros.</p>
+<p>Este código NO es un código óptimo desde el punto de vista computacional. Muy seguramente usa muchos recursos de memoria y puede demorar un poco para simular datos. Sin embargo, es un código FÁCIL de entender.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="función-simulate" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="función-simulate">Función <code>simulate</code></h2>
+<p>La función <code>simulate</code> del paquete básico <strong>stats</strong> permite simular respuestas a partir de un modelo de clase lm o glm. La estructura de la función es la siguiente:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">simulate</span>(object, <span class="at">nsim =</span> <span class="dv">1</span>, <span class="at">seed =</span> <span class="cn">NULL</span>, ...)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="ejemplo-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="ejemplo-1">Ejemplo</h3>
+<p>Use las 5 primeras observaciones base de datos <code>cars</code> y con esos ajuste un modelo lineal para explicar la distancia promedio para detener el vehículo en función de la velocidad a la cual estaba el vehículo cuando se presionaron los frenos. Luego use ese modelo para simular distancias de frenado.</p>
+<p><strong>Solución</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> cars[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, ]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(dist <span class="sc">~</span> speed, <span class="at">data=</span>datos)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">simulate</span>(<span class="at">object=</span>mod, <span class="at">nsim=</span><span class="dv">1</span>, <span class="at">seed=</span><span class="dv">1234</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      sim_1
+1 -3.769550
+2  8.175135
+3 21.954305
+4 -5.645603
+5 19.110007</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="otras-herramientas-para-simular" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="otras-herramientas-para-simular">Otras herramientas para simular</h2>
+<p>Abajo una lista de herramientas para simular datos a partir de un modelo.</p>
+<ul>
+<li>Paquete <a href="https://cran.r-project.org/web/packages/simglm/">simglm</a>: Simulate Models Based on the Generalized Linear Model.</li>
+<li>Paquete <a href="https://cran.r-project.org/web/packages/simrel/index.html">simrel</a>: Simulation of Multivariate Linear Model Data.</li>
+<li><a href="https://www.r-bloggers.com/make-your-r-simulation-models-20-times-faster/">Make your R simulation models 20 times faster</a>.</li>
+</ul>
+</section>
+<section id="videos-sugeridos" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="videos-sugeridos">Videos sugeridos</h2>
+<p>A continuación se muestran algunos videos que muestran cómo simular datos de un modelo lineal usando R.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/p7kSSSsv4ms" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pGvJl8vvlXY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -661,11 +833,14 @@ Análisis de Regresión Lineal</em>. 3ed ed. Cecsa.
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./09-ph2.html" class="pagination-link" aria-label="Pruebas de hipótesis parte II">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Pruebas de hipótesis parte II</span></span>
+      <a href="./04-predict.html" class="pagination-link" aria-label="Predicción">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Predicción</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./06-ic.html" class="pagination-link" aria-label="Intervalos de confianza">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Intervalos de confianza</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

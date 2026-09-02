@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>References – Análisis de regresión con R</title>
+<title>8&nbsp; Pruebas de hipótesis parte I – Análisis de regresión con R</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -52,7 +87,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./09-ph2.html" rel="prev">
+<link href="./09-ph2.html" rel="next">
+<link href="./07-var_cuali.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -91,6 +127,35 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -103,7 +168,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-ph1.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pruebas de hipótesis parte I</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -178,7 +243,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-ph1.html" class="sidebar-item-text sidebar-link">
+  <a href="./08-ph1.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pruebas de hipótesis parte I</span></span></a>
   </div>
 </li>
@@ -190,7 +255,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -199,15 +264,29 @@ div.csl-indent {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#pruebas-sobre-los-coeficientes-beta" id="toc-pruebas-sobre-los-coeficientes-beta" class="nav-link active" data-scroll-target="#pruebas-sobre-los-coeficientes-beta">Pruebas sobre los coeficientes <span class="math inline">\(\beta\)</span></a></li>
+  <li><a href="#función-summary-cuando-beta_j0-0" id="toc-función-summary-cuando-beta_j0-0" class="nav-link" data-scroll-target="#función-summary-cuando-beta_j0-0">Función <code>summary</code> cuando <span class="math inline">\(\beta_{j0} = 0\)</span></a>
+  <ul class="collapse">
+  <li><a href="#ejemplo" id="toc-ejemplo" class="nav-link" data-scroll-target="#ejemplo">Ejemplo</a></li>
+  </ul></li>
+  <li><a href="#función-beta_test-cuando-beta_k0-neq-0" id="toc-función-beta_test-cuando-beta_k0-neq-0" class="nav-link" data-scroll-target="#función-beta_test-cuando-beta_k0-neq-0">Función <code>beta_test</code> cuando <span class="math inline">\(\beta_{k0} \neq 0\)</span></a>
+  <ul class="collapse">
+  <li><a href="#ejemplo-1" id="toc-ejemplo-1" class="nav-link" data-scroll-target="#ejemplo-1">Ejemplo</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">References</h1>
+<h1 class="title"><span id="ph1" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pruebas de hipótesis parte I</span></span></h1>
 </div>
 
 
@@ -224,39 +303,114 @@ div.csl-indent {
 </header>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-R-MPV" class="csl-entry" role="listitem">
-Braun, W. J., and S. MacQueen. 2023. <em>MPV: Data Sets from Montgomery,
-Peck and Vining</em>. <a href="https://CRAN.R-project.org/package=MPV">https://CRAN.R-project.org/package=MPV</a>.
+<p>En este capítulo se muestra como realizar pruebas de hipótesis para un modelo de regresión lineal.</p>
+<p>La prueba explicada a continuación se conoce como prueba de Wald en honor a Abraham Wald (1902-1950).</p>
+<section id="pruebas-sobre-los-coeficientes-beta" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="pruebas-sobre-los-coeficientes-beta">Pruebas sobre los coeficientes <span class="math inline">\(\beta\)</span></h2>
+<p>Cuando se tiene un modelo de regresión con <span class="math inline">\(k\)</span> variables en la matriz de diseño <span class="math inline">\(\boldsymbol{X}\)</span> (la primera columna de <span class="math inline">\(\boldsymbol{X}\)</span> son unos y no se cuenta como variable), es usual que nos interese estudiar</p>
+<p><span class="math display">\[H_0: \beta_j = \beta_{j0},\]</span> frente a una de las tres siguientes hipótesis alternas: <span class="math display">\[H_A: \beta_j &lt; \beta_{j0}, \quad H_A: \beta_j \neq \beta_{j0}, \quad H_A: \beta_j  &gt; \beta_{j0},\]</span> para algún <span class="math inline">\(j = 0, 1, 2, \ldots, k\)</span>.</p>
+<p>Para estas pruebas el estadístico de prueba está dado por</p>
+<p><span class="math display">\[
+t_0 = \frac{\hat{\beta}_j - \beta_{j0}}{s.e.(\hat{\beta}_j)},
+\]</span></p>
+<p>y bajo la hipótesis nula cierta, <span class="math inline">\(t_0 \sim t_{n-k-1}\)</span>.</p>
+<div class="cell" type="rmdnote">
+
+<div class="rmdnote">
+Cuando se realiza una prueba de hipótesis sobre uno de los coeficientes <span class="math inline">\(\beta\)</span>, se asume que las variables restantes permanecen en el modelo, en otras palabras, esta es una prueba marginal.
 </div>
-<div id="ref-bretz2010" class="csl-entry" role="listitem">
-Frank Bretz, Peter Westfall, Torsten Hothorn. 2010. <em>Multiple
-Comparisons Using r</em>. Chapman; Hall/CRC.
 </div>
+</section>
+<section id="función-summary-cuando-beta_j0-0" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="función-summary-cuando-beta_j0-0">Función <code>summary</code> cuando <span class="math inline">\(\beta_{j0} = 0\)</span></h2>
+<p>Para realizar pruebas de hipótesis cuando el valor de referencia <span class="math inline">\(\beta_{j0}\)</span> es igual a cero se puede usar la función <code>summary</code>.</p>
+<section id="ejemplo" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="ejemplo">Ejemplo</h3>
+<p>Aquí vamos a retomar el ejemplo 2.1 del libro de <a href="https://www.amazon.com/Introduccion-analisis-regresion-lineal-Spanish/dp/9702403278">Montgomery, Peck and Vining (2003)</a>. En el ejemplo 2.1 los autores ajustaron un modelo de regresión lineal simple para explicar la Resistencia de una soldadura en función de la Edad de la misma.</p>
+<p>¿Será la variable Edad una variable significativa para el modelo? es decir, ¿será el coeficiente de la Edad igual a cero o no?</p>
+<p align="center">
+<img src="images/ilustracion_soldadura.png" width="400">
+</p>
+<p><strong>Solución</strong></p>
+<p>Las anteriores preguntas se pueden resumir por medio del siguiente conjunto de hipótesis.</p>
+<p><span class="math display">\[H_0: \beta_{Edad} = 0,\]</span> <span class="math display">\[H_A: \beta_{Edad} \neq 0\]</span></p>
+<p>Para responder a esta pregunta vamos a ajustar el modelo de la forma usual y luego vamos a construir la tabla de resumen del modelo, el código para hacer esto es el siguiente.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>file <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/fhernanb/datos/master/propelente"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span>file, <span class="at">header=</span><span class="cn">TRUE</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Resistencia <span class="sc">~</span> Edad, <span class="at">data=</span>datos)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Resistencia ~ Edad, data = datos)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-215.98  -50.68   28.74   66.61  106.76 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 2627.822     44.184   59.48  &lt; 2e-16 ***
+Edad         -37.154      2.889  -12.86 1.64e-10 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 96.11 on 18 degrees of freedom
+Multiple R-squared:  0.9018,    Adjusted R-squared:  0.8964 
+F-statistic: 165.4 on 1 and 18 DF,  p-value: 1.643e-10</code></pre>
+</div>
+</div>
+<p>De la tabla anterior tenemos que el valor-P asociado a Edad es 1.64e-10, por lo tanto a un nivel de significancia usual de 5%, hay evidencias para rechazar <span class="math inline">\(H_0\)</span> y se concluye que la variable Edad si aporta información para predecir la media de la Resistencia.</p>
+</section>
+</section>
+<section id="función-beta_test-cuando-beta_k0-neq-0" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="función-beta_test-cuando-beta_k0-neq-0">Función <code>beta_test</code> cuando <span class="math inline">\(\beta_{k0} \neq 0\)</span></h2>
+<p>Para realizar pruebas de hipótesis cuando el valor de referencia <span class="math inline">\(\beta_{k0}\)</span> es diferente de cero, se puede usar la función <code>beta_test</code> del paquete <strong>model</strong> <span class="citation" data-cites="R-model">(<a href="references.html#ref-R-model" role="doc-biblioref">Hernandez and Usuga 2026</a>)</span>. Este paquete está alojado en github y para poder instalarlo se sebe usar el siguiente código.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"remotes"</span>)) <span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"fhernanb/model"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>La estructura de la función se muestra a continuación.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">beta_test</span>(object, <span class="at">alternative =</span> <span class="fu">c</span>(<span class="st">"two.sided"</span>, <span class="st">"less"</span>, <span class="st">"greater"</span>), parm, ref.value)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Los argumentos de esta función son:</p>
+<ul>
+<li><code>object</code>: un objeto de la clase <code>lm</code>.</li>
+<li><code>alternative</code>: una cadena de caracteres indicando el signo de la hipótesis alterna, los valores posibles son <code>two.sided</code> (valor por defecto), <code>greater</code> o <code>less</code>.</li>
+<li><code>parm</code>: vector con el nombre de la variable.</li>
+<li><code>ref.value</code>: valor de referencia <span class="math inline">\(\beta_{j0}\)</span> de la prueba.</li>
+</ul>
+<section id="ejemplo-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="ejemplo-1">Ejemplo</h3>
+<p>Aquí vamos a retomar el ejemplo 2.1 del libro de <a href="https://www.amazon.com/Introduccion-analisis-regresion-lineal-Spanish/dp/9702403278">Montgomery, Peck and Vining (2003)</a>. En el ejemplo 2.1 los autores ajustaron un modelo de regresión lineal simple para explicar la Resistencia de una soldadura en función de la Edad de la misma.</p>
+<p>El proveedor de la soldadura afirma que la resistencia media para soldaduras nuevas es 2700 psi. Pruebe la hipótesis de que la resistencia media es diferente a un nivel de significancia del 5%.</p>
+<p align="center">
+<img src="images/ilustracion_soldadura.png" width="400">
+</p>
+<p><strong>Solución</strong></p>
+<p>La anterior pregunta se pueden resumir por medio del siguiente conjunto de hipótesis.</p>
+<p><span class="math display">\[H_0: \beta_{0} = 2700,\]</span> <span class="math display">\[H_A: \beta_{0} \neq 2700\]</span></p>
+<p>Para responder a esta pregunta vamos usar la función <code>beta_test</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(model)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">beta_test</span>(<span class="at">object=</span>mod, <span class="at">parm=</span><span class="st">'(Intercept)'</span>, <span class="at">ref.value=</span><span class="dv">2700</span>, <span class="at">alternative=</span><span class="st">'two.sided'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Estimate  Std.Err t value Pr(&gt;t)
+(Intercept) 2627.822   44.184 -1.6336 0.1197</code></pre>
+</div>
+</div>
+<p>Como el valor-P obtenido es 0.1197, entonces la resistencia media para soldaduras nuevas sigue siendo de 2700 psi, en otras palabras, no hay evidencias para rechazar <span class="math inline">\(H_0\)</span>, esto a un nivel de significancia del 5%.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-R-model" class="csl-entry" role="listitem">
-Hernandez, Freddy, and Olga Usuga. 2026. <em>Model: This Package
-Contains Useful Functions for Modeling Regresion</em>. <a href="https://fhernanb.github.io/model">https://fhernanb.github.io/model</a>.
-</div>
-<div id="ref-R-multcomp" class="csl-entry" role="listitem">
-Hothorn, Torsten, Frank Bretz, and Peter Westfall. 2026. <em>Multcomp:
-Simultaneous Inference in General Parametric Models</em>. <a href="https://codeberg.org/thothorn/multcomp">https://codeberg.org/thothorn/multcomp</a>.
-</div>
-<div id="ref-neter2005" class="csl-entry" role="listitem">
-Kutner, M., C. Nachtsheim, J. Neter, and W. Li. 2005. <em>Applied Linear
-Statistical Models</em>. Fifth. McGraw Hill/Irwin.
-</div>
-<div id="ref-Montgomery12" class="csl-entry" role="listitem">
-Montgomery, Douglas C., Elizabeth A. Peck, and Geoffrey G. Vining. 2012.
-<em>Introduction to Linear Regression Analysis (5th Ed.)</em>. Wiley
-&amp; Sons.
-</div>
-<div id="ref-mpv06" class="csl-entry" role="listitem">
-Montgomery, E. &amp; Vining, D. &amp; Peck. 2006. <em>Introducción Al
-Análisis de Regresión Lineal</em>. 3ed ed. Cecsa.
+Hernandez, Freddy, and Olga Usuga. 2026. <em>Model: This Package Contains Useful Functions for Modeling Regresion</em>. <a href="https://fhernanb.github.io/model">https://fhernanb.github.io/model</a>.
 </div>
 </div>
-
-
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -661,11 +815,14 @@ Análisis de Regresión Lineal</em>. 3ed ed. Cecsa.
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./09-ph2.html" class="pagination-link" aria-label="Pruebas de hipótesis parte II">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Pruebas de hipótesis parte II</span></span>
+      <a href="./07-var_cuali.html" class="pagination-link" aria-label="Modelos con variables cualitativas">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Modelos con variables cualitativas</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./09-ph2.html" class="pagination-link" aria-label="Pruebas de hipótesis parte II">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Pruebas de hipótesis parte II</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

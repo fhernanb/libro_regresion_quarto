@@ -12,6 +12,11 @@ book:
     - 02-transf.qmd
     - 03-rlm.qmd
     - 04-predict.qmd
+    - 05-simul.qmd
+    - 06-ic.qmd
+    - 07-var_cuali.qmd
+    - 08-ph1.qmd
+    - 09-ph2.qmd
     - references.qmd
 
 bibliography: mis_ref.bib
