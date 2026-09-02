@@ -309,6 +309,48 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./19-coefEstandarizados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Regresión con coeficientes de regresión estandarizados</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-algebramatricial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Algebra matricial con R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-Wilkinson-Rogers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Notación de Wilkinson y Rogers</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-xy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">¿Cómo obtener la matriz <span class="math inline">\(\boldsymbol{X}\)</span> y el vector <span class="math inline">\(\boldsymbol{y}\)</span>?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-behind.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Otros aspectos importantes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-pasos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Pasos para construir modelos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-misspecification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Mala especificación</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -386,7 +428,7 @@ Y_i &amp;\sim N(\mu_i, \sigma^2), \\
 \sigma^2 &amp;= \text{constante}
 \end{align}\]</span></p>
 <p>En cualquiera de las dos formas el vector de parámetros del modelo es <span class="math inline">\(\boldsymbol{\theta}=(\beta_0, \beta_1, \sigma)^\top\)</span>. Para estimar este vector de parámetros se suelen utilizar dos métodos: <a href="#estimación-por-mínimos-cuadrados">Estimación por mínimos cuadrados</a> y <a href="#estimación-por-máxima-verosimilitud">Estimación por máxima verosimilitud</a>.</p>
-<p>La siguiente figura, tomada del libro <span class="citation" data-cites="neter2005">Kutner et al. (<a href="references.html#ref-neter2005" role="doc-biblioref">2005</a>)</span>, muestra con claridad el supuesto de normalidad de la variable <span class="math inline">\(Y\)</span>, la dependencia de la media <span class="math inline">\(\mu\)</span> con <span class="math inline">\(X\)</span> y la varianza constante.</p>
+<p>La siguiente figura, tomada del libro <span class="citation" data-cites="neter2005">Kutner et al. (<a href="#ref-neter2005" role="doc-biblioref">2005</a>)</span>, muestra con claridad el supuesto de normalidad de la variable <span class="math inline">\(Y\)</span>, la dependencia de la media <span class="math inline">\(\mu\)</span> con <span class="math inline">\(X\)</span> y la varianza constante.</p>
 <p align="center">
 </p><p><img src="images/supuesto_lm1.png" width="600"></p>
 <p></p>
@@ -410,7 +452,7 @@ Y_i &amp;\sim N(\mu_i, \sigma^2), \\
 </ul>
 <section id="ejemplo" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="ejemplo">Ejemplo</h3>
-<p>Como ilustración vamos a usar los datos del ejemplo 2.1 del libro <span class="citation" data-cites="mpv06">Montgomery (<a href="references.html#ref-mpv06" role="doc-biblioref">2006</a>)</span>. En el ejemplo 2.1 los autores desean ajustar un modelo de regresión lineal simple para explicar la Resistencia de una soldadura en función de la Edad de la soldadura.</p>
+<p>Como ilustración vamos a usar los datos del ejemplo 2.1 del libro <span class="citation" data-cites="mpv06">Montgomery (<a href="#ref-mpv06" role="doc-biblioref">2006</a>)</span>. En el ejemplo 2.1 los autores desean ajustar un modelo de regresión lineal simple para explicar la Resistencia de una soldadura en función de la Edad de la soldadura.</p>
 <p align="center">
 </p><p><img src="images/ilustracion_soldadura.png" width="400"></p>
 <p></p>
@@ -720,7 +762,7 @@ Note
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-neter2005" class="csl-entry" role="listitem">
 Kutner, M., C. Nachtsheim, J. Neter, and W. Li. 2005. <em>Applied Linear Statistical Models</em>. Fifth. McGraw Hill/Irwin.
 </div>

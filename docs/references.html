@@ -52,7 +52,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./18-multicoli.html" rel="prev">
+<link href="./25-misspecification.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -91,6 +91,35 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -244,6 +273,48 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./19-coefEstandarizados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Regresión con coeficientes de regresión estandarizados</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-algebramatricial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Algebra matricial con R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-Wilkinson-Rogers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Notación de Wilkinson y Rogers</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-xy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">¿Cómo obtener la matriz <span class="math inline">\(\boldsymbol{X}\)</span> y el vector <span class="math inline">\(\boldsymbol{y}\)</span>?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-behind.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Otros aspectos importantes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-pasos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Pasos para construir modelos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-misspecification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Mala especificación</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">References</span></a>
   </div>
@@ -279,6 +350,10 @@ div.csl-indent {
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-R-Matrix" class="csl-entry" role="listitem">
+Bates, Douglas, Martin Maechler, and Mikael Jagan. 2026. <em>Matrix:
+Sparse and Dense Matrix Classes and Methods</em>. <a href="https://Matrix.R-forge.R-project.org">https://Matrix.R-forge.R-project.org</a>.
+</div>
 <div id="ref-R-MPV" class="csl-entry" role="listitem">
 Braun, W. J., and S. MacQueen. 2023. <em>MPV: Data Sets from Montgomery,
 Peck and Vining</em>. <a href="https://CRAN.R-project.org/package=MPV">https://CRAN.R-project.org/package=MPV</a>.
@@ -312,6 +387,10 @@ Regression</em>. Third. SAGE Publications, Inc.
 <div id="ref-bretz2010" class="csl-entry" role="listitem">
 Frank Bretz, Peter Westfall, Torsten Hothorn. 2010. <em>Multiple
 Comparisons Using r</em>. Chapman; Hall/CRC.
+</div>
+<div id="ref-vgherard2023model" class="csl-entry" role="listitem">
+Gherardi, Valerio. 2023. <em>Valerio Gherardi: Model Misspecification
+and Linear Sandwiches</em>. <a href="https://vgherard.github.io/posts/2023-05-14-model-misspecification-and-linear-sandwiches/">https://vgherard.github.io/posts/2023-05-14-model-misspecification-and-linear-sandwiches/</a>.
 </div>
 <div id="ref-R-olsrr" class="csl-entry" role="listitem">
 Hebbali, Aravind. 2026. <em>Olsrr: Tools for Building OLS Regression
@@ -350,6 +429,11 @@ Datasets for Venables and Ripley’s MASS</em>. <a href="http://www.stats.ox.ac.
 White, Halbert. 1980. <span>“A Heteroskedasticity-Consistent Covariance
 Matrix Estimator and a Direct Test for Heteroskedasticity.”</span>
 <em>Econometrica: Journal of the Econometric Society</em>, 817–38.
+</div>
+<div id="ref-R-Formula" class="csl-entry" role="listitem">
+Zeileis, Achim, and Yves Croissant. 2010. <span>“Extended Model Formulas
+in <span>R</span>: Multiple Parts and Multiple Responses.”</span>
+<em>Journal of Statistical Software</em> 34 (1): 1–13. <a href="https://doi.org/10.18637/jss.v034.i01">https://doi.org/10.18637/jss.v034.i01</a>.
 </div>
 <div id="ref-R-lmtest" class="csl-entry" role="listitem">
 Zeileis, Achim, and Torsten Hothorn. 2002. <span>“Diagnostic Checking in
@@ -762,8 +846,8 @@ Regression Relationships.”</span> <em>R News</em> 2 (3): 7–10. <a href="http
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./18-multicoli.html" class="pagination-link" aria-label="Multicolinealidad">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Multicolinealidad</span></span>
+      <a href="./25-misspecification.html" class="pagination-link" aria-label="Mala especificación">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Mala especificación</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

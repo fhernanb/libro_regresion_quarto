@@ -5,7 +5,7 @@ project:
 book:
   title: "Análisis de regresión con R"
   author: "Freddy Hernández"
-  date: "9/1/2026"
+  date: today
   chapters:
     - index.qmd
     - 01-rls.qmd

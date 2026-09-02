@@ -309,6 +309,48 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./19-coefEstandarizados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Regresión con coeficientes de regresión estandarizados</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-algebramatricial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Algebra matricial con R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-Wilkinson-Rogers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Notación de Wilkinson y Rogers</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-xy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">¿Cómo obtener la matriz <span class="math inline">\(\boldsymbol{X}\)</span> y el vector <span class="math inline">\(\boldsymbol{y}\)</span>?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-behind.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Otros aspectos importantes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-pasos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Pasos para construir modelos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-misspecification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Mala especificación</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -408,7 +450,7 @@ H_1 &amp;: \text{los errores no tienen varianza constante.}
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(estadistico, valorP)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     estadistico       valorP
-[1,]    25.75634 2.553182e-06</code></pre>
+[1,]    28.57237 6.245813e-07</code></pre>
 </div>
 </div>
 <p>Vamos a aplicar la prueba de forma automática con la función <code>bptest</code>.</p>
@@ -420,7 +462,7 @@ H_1 &amp;: \text{los errores no tienen varianza constante.}
     studentized Breusch-Pagan test
 
 data:  mod
-BP = 25.756, df = 2, p-value = 2.553e-06</code></pre>
+BP = 28.572, df = 2, p-value = 6.246e-07</code></pre>
 </div>
 </div>
 <p>De la salida anterior se observa que el valor-P es menor que el nivel de significancia usual de 5%, por lo tanto, hay evidencias para decir que no se cumple la homocedasticidad de los <span class="math inline">\(e_i\)</span>.</p>
@@ -445,7 +487,7 @@ BP = 25.756, df = 2, p-value = 2.553e-06</code></pre>
     studentized Breusch-Pagan test
 
 data:  mod
-BP = 25.926, df = 5, p-value = 9.224e-05</code></pre>
+BP = 30.101, df = 5, p-value = 1.409e-05</code></pre>
 </div>
 </div>
 <p>Como el valor-P es pequeño entonces hay evidencias para rechazar la hipótesis de homocedasticidad.</p>
@@ -458,7 +500,7 @@ BP = 25.926, df = 5, p-value = 9.224e-05</code></pre>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(estadistico, valorP)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     estadistico       valorP
-[1,]    25.92588 9.223855e-05</code></pre>
+[1,]     30.1013 1.408664e-05</code></pre>
 </div>
 </div>
 </section>
@@ -480,7 +522,7 @@ BP = 25.926, df = 5, p-value = 9.224e-05</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Non-constant Variance Score Test 
 Variance formula: ~ fitted.values 
-Chisquare = 21.40867, Df = 1, p = 3.7109e-06</code></pre>
+Chisquare = 21.12561, Df = 1, p = 4.3014e-06</code></pre>
 </div>
 </div>
 </section>
