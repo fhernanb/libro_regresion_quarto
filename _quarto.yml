@@ -1,0 +1,26 @@
+project:
+  type: book
+
+book:
+  title: "Análisis de regresión con R"
+  author: "Freddy Hernández"
+  date: "9/1/2026"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - 01-rls.qmd
+    - 02-transf.qmd
+    - references.qmd
+
+bibliography: mis_ref.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+
