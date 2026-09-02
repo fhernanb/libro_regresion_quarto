@@ -1,9 +1,9 @@
-# Preface {.unnumbered}
+# Prefacio {.unnumbered}
 
-This is a Quarto book.
+Bienvenido al libro Modelos de Regresión con R.
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+Este libro está destinado para estudiantes de ingeniería y estadística que deseen aprender sobre modelos de regresión y la forma de aplicarlos por medio del lenguaje de programación R.
 
-```{r}
-1 + 1
-```
+[Freddy Hernández](https://fhernanb.github.io/)  
+[Olga Usuga](https://www.udea.edu.co/)  
+[Mauricio Mazo](https://unal.edu.co/)

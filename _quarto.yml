@@ -8,9 +8,10 @@ book:
   date: "9/1/2026"
   chapters:
     - index.qmd
-    - intro.qmd
     - 01-rls.qmd
     - 02-transf.qmd
+    - 03-rlm.qmd
+    - 04-predict.qmd
     - references.qmd
 
 bibliography: mis_ref.bib
